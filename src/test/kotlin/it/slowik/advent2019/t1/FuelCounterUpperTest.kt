@@ -15,15 +15,15 @@ class FuelCounterUpperTest {
                 Stream.of(
                         Arguments.of(listOf("12"), 2),
                         Arguments.of(listOf("14"), 2),
-                        Arguments.of(listOf("1969"), 654),
-                        Arguments.of(listOf("100756"), 33583)
+                        Arguments.of(listOf("1969"), 966),
+                        Arguments.of(listOf("100756"), 50346)
                 )
     }
 
     @ParameterizedTest
     @MethodSource("testData")
     fun tests(input: List<String>, expected: Int) {
-        val res = FuelCounterUpperImpl(input)
+        val res = fuelCounterUpperImpl(input)
         assertEquals(expected, res)
     }
 
