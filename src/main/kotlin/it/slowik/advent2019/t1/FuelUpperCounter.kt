@@ -1,7 +1,6 @@
 package it.slowik.advent2019.t1
 
 import it.slowik.advent2019.ResourceReader
-import kotlin.math.floor
 
 val FuelCounterUpper = { filename: String ->
     val lines = ResourceReader.readLines(filename)
@@ -16,15 +15,10 @@ internal val fuelCounterUpperImpl = { input: List<String> ->
 }
 
 private fun fuelUpperCounterRec(fuel: Int): Int {
-    val partialFuel = fuelCalc(fuel)
+    val partialFuel = (fuel / 3) - 2
     return if (partialFuel < 0) {
         fuel
     } else {
         fuelUpperCounterRec(partialFuel) + fuel
     }
 }
-
-val fuelCalc = { fuel: Int ->
-    floor(fuel.toDouble() / 3).toInt() - 2
-}
-
